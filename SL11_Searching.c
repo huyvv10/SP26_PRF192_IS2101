@@ -17,14 +17,33 @@ int findFirstPos(int a[], int n, int x){
 }
 //Return the maximum value in the array
 int getMax(int a[], int n){
-	
-	return 0;
+	int max = a[0];
+	int i;
+	for (i=1; i<n; i++){
+		if (a[i]>max) 
+			max = a[i];
+	}
+	return max;
 }
 
 //Return the minimum value in the array
 int getMin(int a[], int n){
-	
-	return 0;
+	int min = a[0];
+	int i;
+	for (i=1; i<n; i++){
+		if (a[i]<min) 
+			min = a[i];
+	}
+	return min;	
+}
+//Return number appearances of x in the array
+//int countValue(int a[], int n, int x){
+int countValue(int *a, int n, int x){
+	int i, count=0;
+	for (i=0; i<n; i++)
+		if(a[i] == x)
+			count++;
+	return count;		
 }
 int main(){
 	int n;
@@ -38,6 +57,9 @@ int main(){
 	if (pos!=-1)
 		printf("%d", pos);
 	else
-		printf("Find not found %d in the array.", x);	
+		printf("Find not found %d in the array.", x);
+	printf("\nThe maximum value in the array is %d", getMax(arr,n));		
+	printf("\nThe minimum value in the array is %d", getMin(arr,n));		
+	printf("\nThe number appearance of %d is %d", x, countValue(arr,n,x));
 	return 0;
 }
